@@ -22,6 +22,13 @@ import SinglePostComponent from "./SinglePostComponent";
 
         components: {
             SinglePostComponent,
+        },
+
+        data() {
+            return {
+                name: "Bob",
+                age: 23,
+            }
         }
     }
 </script>
