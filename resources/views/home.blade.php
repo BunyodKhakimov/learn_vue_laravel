@@ -19,9 +19,16 @@
                 </div>
             </div>
         </div>
-        <div class="col-md-8 mt-4">
+        <div>
             <example-component></example-component>
+            <post-component></post-component>
         </div>
     </div>
 </div>
 @endsection
+<script>
+    import PostComponent from "../js/components/PostComponent";
+    export default {
+        components: {PostComponent}
+    }
+</script>
