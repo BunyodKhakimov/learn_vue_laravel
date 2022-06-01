@@ -7,6 +7,7 @@
 
                     <div class="card-body">
                         I'm an post component. <br> First created here.
+                        <SinglePostComponent></SinglePostComponent>
                     </div>
                 </div>
             </div>
@@ -15,8 +16,13 @@
 </template>
 
 <script>
+import SinglePostComponent from "./SinglePostComponent";
     export default {
-        name: "PostComponent"
+        name: "PostComponent",
+
+        components: {
+            SinglePostComponent,
+        }
     }
 </script>
 
