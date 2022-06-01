@@ -5321,6 +5321,8 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   name: "PostComponent",
@@ -5336,6 +5338,14 @@ __webpack_require__.r(__webpack_exports__);
   methods: {
     sayHello: function sayHello() {
       console.log('Hello!');
+    }
+  },
+  computed: {
+    getJob: function getJob() {
+      return this.name + ' working as a backend developer';
+    },
+    getAge: function getAge() {
+      return this.age;
     }
   }
 });
@@ -28168,11 +28178,13 @@ var render = function () {
               _c("br"),
               _vm._v(" First created here.\n                    "),
               _c("SinglePostComponent"),
-              _vm._v(
-                "\n                    Name: " +
-                  _vm._s(_vm.name) +
-                  "\n                    "
-              ),
+              _vm._v("\n                    Name: " + _vm._s(_vm.name) + " "),
+              _c("br"),
+              _vm._v("\n                    Job: " + _vm._s(_vm.getJob) + " "),
+              _c("br"),
+              _vm._v("\n                    Age: " + _vm._s(_vm.getAge) + " "),
+              _c("br"),
+              _vm._v(" "),
               _c(
                 "button",
                 {

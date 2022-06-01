@@ -8,7 +8,9 @@
                     <div class="card-body">
                         I'm an post component. <br> First created here.
                         <SinglePostComponent></SinglePostComponent>
-                        Name: {{ name }}
+                        Name: {{ name }} <br>
+                        Job: {{ getJob }} <br>
+                        Age: {{ getAge }} <br>
                         <button class="btn btn-dark" @click="sayHello()">Say Hello</button>
                     </div>
                 </div>
@@ -36,6 +38,15 @@ import SinglePostComponent from "./SinglePostComponent";
         methods: {
             sayHello(){
                 console.log('Hello!');
+            }
+        },
+
+        computed: {
+            getJob(){
+                return this.name + ' working as a backend developer'
+            },
+            getAge(){
+                return this.age
             }
         }
     }
