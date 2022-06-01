@@ -5319,6 +5319,8 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   name: "PostComponent",
@@ -5330,6 +5332,11 @@ __webpack_require__.r(__webpack_exports__);
       name: "Bob",
       age: 23
     };
+  },
+  methods: {
+    sayHello: function sayHello() {
+      console.log('Hello!');
+    }
   }
 });
 
@@ -28161,6 +28168,23 @@ var render = function () {
               _c("br"),
               _vm._v(" First created here.\n                    "),
               _c("SinglePostComponent"),
+              _vm._v(
+                "\n                    Name: " +
+                  _vm._s(_vm.name) +
+                  "\n                    "
+              ),
+              _c(
+                "button",
+                {
+                  staticClass: "btn btn-dark",
+                  on: {
+                    click: function ($event) {
+                      return _vm.sayHello()
+                    },
+                  },
+                },
+                [_vm._v("Say Hello")]
+              ),
             ],
             1
           ),

@@ -8,6 +8,8 @@
                     <div class="card-body">
                         I'm an post component. <br> First created here.
                         <SinglePostComponent></SinglePostComponent>
+                        Name: {{ name }}
+                        <button class="btn btn-dark" @click="sayHello()">Say Hello</button>
                     </div>
                 </div>
             </div>
@@ -28,6 +30,12 @@ import SinglePostComponent from "./SinglePostComponent";
             return {
                 name: "Bob",
                 age: 23,
+            }
+        },
+
+        methods: {
+            sayHello(){
+                console.log('Hello!');
             }
         }
     }
