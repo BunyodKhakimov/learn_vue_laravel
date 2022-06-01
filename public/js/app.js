@@ -5323,6 +5323,26 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   name: "PostComponent",
@@ -5331,8 +5351,22 @@ __webpack_require__.r(__webpack_exports__);
   },
   data: function data() {
     return {
-      name: "Bob",
-      age: 23
+      persons: [{
+        id: 1,
+        name: 'Bob',
+        age: 43,
+        job: 'It Specialist'
+      }, {
+        id: 2,
+        name: 'Alice',
+        age: 32,
+        job: 'Manager'
+      }, {
+        id: 3,
+        name: 'John',
+        age: 28,
+        job: 'Designer'
+      }]
     };
   },
   methods: {
@@ -28202,10 +28236,54 @@ var render = function () {
           ),
         ]),
       ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "col-md-8" }, [
+        _c(
+          "table",
+          { staticClass: "table" },
+          [
+            _vm._m(0),
+            _vm._v(" "),
+            _vm._l(_vm.persons, function (person) {
+              return _c("tbody", [
+                _c("tr", [
+                  _c("th", { attrs: { scope: "row" } }, [
+                    _vm._v(_vm._s(person.id)),
+                  ]),
+                  _vm._v(" "),
+                  _c("td", [_vm._v(_vm._s(person.name))]),
+                  _vm._v(" "),
+                  _c("td", [_vm._v(_vm._s(person.age))]),
+                  _vm._v(" "),
+                  _c("td", [_vm._v(_vm._s(person.job))]),
+                ]),
+              ])
+            }),
+          ],
+          2
+        ),
+      ]),
     ]),
   ])
 }
-var staticRenderFns = []
+var staticRenderFns = [
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("thead", [
+      _c("tr", [
+        _c("th", { attrs: { scope: "col" } }, [_vm._v("#")]),
+        _vm._v(" "),
+        _c("th", { attrs: { scope: "col" } }, [_vm._v("Name")]),
+        _vm._v(" "),
+        _c("th", { attrs: { scope: "col" } }, [_vm._v("Age")]),
+        _vm._v(" "),
+        _c("th", { attrs: { scope: "col" } }, [_vm._v("Job")]),
+      ]),
+    ])
+  },
+]
 render._withStripped = true
 
 

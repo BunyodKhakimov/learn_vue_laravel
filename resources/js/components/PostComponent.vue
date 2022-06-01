@@ -15,6 +15,26 @@
                     </div>
                 </div>
             </div>
+            <div class="col-md-8">
+                <table class="table">
+                    <thead>
+                    <tr>
+                        <th scope="col">#</th>
+                        <th scope="col">Name</th>
+                        <th scope="col">Age</th>
+                        <th scope="col">Job</th>
+                    </tr>
+                    </thead>
+                    <tbody v-for="person in persons">
+                    <tr>
+                        <th scope="row">{{ person.id }}</th>
+                        <td>{{ person.name }}</td>
+                        <td>{{ person.age }}</td>
+                        <td>{{ person.job }}</td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
         </div>
     </div>
 </template>
@@ -30,8 +50,27 @@ import SinglePostComponent from "./SinglePostComponent";
 
         data() {
             return {
-                name: "Bob",
-                age: 23,
+                persons:[
+                    {
+                        id: 1,
+                        name: 'Bob',
+                        age: 43,
+                        job: 'It Specialist',
+                    },
+                    {
+                        id: 2,
+                        name: 'Alice',
+                        age: 32,
+                        job: 'Manager',
+                    },
+                    {
+                        id: 3,
+                        name: 'John',
+                        age: 28,
+                        job: 'Designer',
+                    },
+
+                ]
             }
         },
 
