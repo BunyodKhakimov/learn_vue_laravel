@@ -25,7 +25,27 @@
                         <th scope="col">Job</th>
                     </tr>
                     </thead>
-                    <tbody v-for="person in persons">
+                    <tbody v-for="person in getFilteredPersons">
+                    <tr>
+                        <th scope="row">{{ person.id }}</th>
+                        <td>{{ person.name }}</td>
+                        <td>{{ person.age }}</td>
+                        <td>{{ person.job }}</td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="col-md-8">
+                <table class="table">
+                    <thead>
+                    <tr>
+                        <th scope="col">#</th>
+                        <th scope="col">Name</th>
+                        <th scope="col">Age</th>
+                        <th scope="col">Job</th>
+                    </tr>
+                    </thead>
+                    <tbody v-for="person in persons" v-if="person.age > 25">
                     <tr>
                         <th scope="row">{{ person.id }}</th>
                         <td>{{ person.name }}</td>
@@ -69,7 +89,18 @@ import SinglePostComponent from "./SinglePostComponent";
                         age: 28,
                         job: 'Designer',
                     },
-
+                    {
+                        id: 4,
+                        name: 'Ann',
+                        age: 22,
+                        job: 'Traveler',
+                    },
+                    {
+                        id: 5,
+                        name: 'Billy',
+                        age: 19,
+                        job: 'Youtuber',
+                    },
                 ]
             }
         },
@@ -86,7 +117,12 @@ import SinglePostComponent from "./SinglePostComponent";
             },
             getAge(){
                 return this.age
-            }
+            },
+            getFilteredPersons(){
+                return this.persons.filter(function (person){
+                    return person.age < 25
+                })
+            },
         }
     }
 </script>

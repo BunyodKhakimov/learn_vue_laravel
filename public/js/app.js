@@ -5343,6 +5343,26 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   name: "PostComponent",
@@ -5366,6 +5386,16 @@ __webpack_require__.r(__webpack_exports__);
         name: 'John',
         age: 28,
         job: 'Designer'
+      }, {
+        id: 4,
+        name: 'Ann',
+        age: 22,
+        job: 'Traveler'
+      }, {
+        id: 5,
+        name: 'Billy',
+        age: 19,
+        job: 'Youtuber'
       }]
     };
   },
@@ -5380,6 +5410,11 @@ __webpack_require__.r(__webpack_exports__);
     },
     getAge: function getAge() {
       return this.age;
+    },
+    getFilteredPersons: function getFilteredPersons() {
+      return this.persons.filter(function (person) {
+        return person.age < 25;
+      });
     }
   }
 });
@@ -28244,7 +28279,7 @@ var render = function () {
           [
             _vm._m(0),
             _vm._v(" "),
-            _vm._l(_vm.persons, function (person) {
+            _vm._l(_vm.getFilteredPersons, function (person) {
               return _c("tbody", [
                 _c("tr", [
                   _c("th", { attrs: { scope: "row" } }, [
@@ -28263,10 +28298,55 @@ var render = function () {
           2
         ),
       ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "col-md-8" }, [
+        _c(
+          "table",
+          { staticClass: "table" },
+          [
+            _vm._m(1),
+            _vm._v(" "),
+            _vm._l(_vm.persons, function (person) {
+              return person.age > 25
+                ? _c("tbody", [
+                    _c("tr", [
+                      _c("th", { attrs: { scope: "row" } }, [
+                        _vm._v(_vm._s(person.id)),
+                      ]),
+                      _vm._v(" "),
+                      _c("td", [_vm._v(_vm._s(person.name))]),
+                      _vm._v(" "),
+                      _c("td", [_vm._v(_vm._s(person.age))]),
+                      _vm._v(" "),
+                      _c("td", [_vm._v(_vm._s(person.job))]),
+                    ]),
+                  ])
+                : _vm._e()
+            }),
+          ],
+          2
+        ),
+      ]),
     ]),
   ])
 }
 var staticRenderFns = [
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("thead", [
+      _c("tr", [
+        _c("th", { attrs: { scope: "col" } }, [_vm._v("#")]),
+        _vm._v(" "),
+        _c("th", { attrs: { scope: "col" } }, [_vm._v("Name")]),
+        _vm._v(" "),
+        _c("th", { attrs: { scope: "col" } }, [_vm._v("Age")]),
+        _vm._v(" "),
+        _c("th", { attrs: { scope: "col" } }, [_vm._v("Job")]),
+      ]),
+    ])
+  },
   function () {
     var _vm = this
     var _h = _vm.$createElement
