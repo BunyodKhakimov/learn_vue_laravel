@@ -26,9 +26,3 @@
     </div>
 </div>
 @endsection
-<script>
-    import PostComponent from "../js/components/PostComponent";
-    export default {
-        components: {PostComponent}
-    }
-</script>
