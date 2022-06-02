@@ -5402,7 +5402,15 @@ __webpack_require__.r(__webpack_exports__);
   methods: {
     sayHello: function sayHello() {
       console.log('Hello!');
+    },
+    getPosts: function getPosts() {
+      return axios.get('/posts').then(function (data) {
+        console.log(data.data);
+      });
     }
+  },
+  mounted: function mounted() {
+    this.getPosts();
   },
   computed: {
     getJob: function getJob() {

@@ -108,7 +108,17 @@ import SinglePostComponent from "./SinglePostComponent";
         methods: {
             sayHello(){
                 console.log('Hello!');
-            }
+            },
+
+            getPosts(){
+                return axios.get('/posts').then(function (data){
+                    console.log(data.data);
+                })
+            },
+        },
+
+        mounted() {
+            this.getPosts()
         },
 
         computed: {
