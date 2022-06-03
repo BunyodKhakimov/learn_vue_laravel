@@ -5433,60 +5433,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 
 
 
@@ -5498,60 +5444,14 @@ __webpack_require__.r(__webpack_exports__);
     IndexComponent: _IndexComponent__WEBPACK_IMPORTED_MODULE_2__["default"]
   },
   data: function data() {
-    return {
-      persons: [{
-        id: 1,
-        name: 'Bob',
-        age: 43,
-        job: 'It Specialist'
-      }, {
-        id: 2,
-        name: 'Alice',
-        age: 32,
-        job: 'Manager'
-      }, {
-        id: 3,
-        name: 'John',
-        age: 28,
-        job: 'Designer'
-      }, {
-        id: 4,
-        name: 'Ann',
-        age: 22,
-        job: 'Traveler'
-      }, {
-        id: 5,
-        name: 'Billy',
-        age: 19,
-        job: 'Youtuber'
-      }]
+    return {//
     };
   },
-  methods: {
-    sayHello: function sayHello() {
-      console.log('Hello!');
-    },
-    getPosts: function getPosts() {
-      return axios.get('/posts').then(function (data) {
-        console.log(data.data);
-      });
-    }
+  methods: {//
   },
-  mounted: function mounted() {
-    this.getPosts();
+  mounted: function mounted() {//
   },
-  computed: {
-    getJob: function getJob() {
-      return this.name + ' working as a backend developer';
-    },
-    getAge: function getAge() {
-      return this.age;
-    },
-    getFilteredPersons: function getFilteredPersons() {
-      return this.persons.filter(function (person) {
-        return person.age < 25;
-      });
-    }
+  computed: {//
   }
 });
 
