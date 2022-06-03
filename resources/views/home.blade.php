@@ -20,7 +20,7 @@
             </div>
         </div>
         <div>
-            <example-component></example-component>
+{{--            <example-component></example-component>--}}
             <post-component></post-component>
         </div>
     </div>

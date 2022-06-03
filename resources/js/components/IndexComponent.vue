@@ -17,7 +17,7 @@
                 <td>{{ person.name }}</td>
                 <td>{{ person.age }}</td>
                 <td>{{ person.job }}</td>
-                <td><a href="#" class="btn btn-success" @click.prevent="editPerson(person.id)">Edit</a></td>
+                <td><a href="#" class="btn btn-success" @click.prevent="editPerson(person.id, person.name, person.age, person.job)">Edit</a></td>
             </tr>
 
             <tr :class="isEditPerson(person.id) ? '' : 'd-none'">
@@ -54,9 +54,11 @@ export default {
                 this.people = res.data
             })
         },
-        editPerson(id){
+        editPerson(id, name, age, job){
             this.editPersonId = id
-            console.log(id);
+            this.name = name
+            this.age = age
+            this.job = job
         },
         isEditPerson(id){
             return id === this.editPersonId
