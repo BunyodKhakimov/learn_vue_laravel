@@ -5407,6 +5407,8 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   name: "IndexComponent",
   data: function data() {
@@ -5447,6 +5449,15 @@ __webpack_require__.r(__webpack_exports__);
         _this2.editPersonId = null;
 
         _this2.getPerson();
+      });
+    },
+    deletePerson: function deletePerson(id) {
+      var _this3 = this;
+
+      axios["delete"]('api/people/' + id).then(function (res) {
+        console.log(res.data);
+
+        _this3.getPerson();
       });
     }
   },
@@ -28640,9 +28651,23 @@ var render = function () {
                     },
                     [_vm._v("Edit")]
                   ),
+                  _vm._v(" "),
+                  _c(
+                    "a",
+                    {
+                      staticClass: "btn btn-danger",
+                      attrs: { href: "#" },
+                      on: {
+                        click: function ($event) {
+                          $event.preventDefault()
+                          return _vm.deletePerson(person.id)
+                        },
+                      },
+                    },
+                    [_vm._v("Delete")]
+                  ),
                 ]),
               ]),
-              _vm._v(" "),
               _c("tr", { class: _vm.isEditPerson(person.id) ? "" : "d-none" }, [
                 _c("th", [_vm._v(_vm._s(person.id))]),
                 _vm._v(" "),

@@ -17,8 +17,10 @@
                 <td>{{ person.name }}</td>
                 <td>{{ person.age }}</td>
                 <td>{{ person.job }}</td>
-                <td><a href="#" class="btn btn-success" @click.prevent="editPerson(person.id, person.name, person.age, person.job)">Edit</a></td>
-            </tr>
+                <td>
+                    <a href="#" class="btn btn-success" @click.prevent="editPerson(person.id, person.name, person.age, person.job)">Edit</a>
+                    <a href="#" class="btn btn-danger" @click.prevent="deletePerson(person.id)">Delete</a>
+                </td>
 
             <tr :class="isEditPerson(person.id) ? '' : 'd-none'">
                 <th>{{ person.id }}</th>
@@ -74,7 +76,14 @@ export default {
                 this.editPersonId = null
                 this.getPerson()
             })
-        }
+        },
+        deletePerson(id){
+          axios.delete('api/people/' + id)
+          .then(res => {
+              console.log(res.data);
+              this.getPerson()
+          })
+        },
     },
 
     mounted() {
