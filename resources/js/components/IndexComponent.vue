@@ -18,17 +18,12 @@
                 <td>{{ person.age }}</td>
                 <td>{{ person.job }}</td>
                 <td>
-                    <a href="#" class="btn btn-success" @click.prevent="editPerson(person.id, person.name, person.age, person.job)">Edit</a>
+                    <a href="#" class="btn btn-success"
+                       @click.prevent="editPerson(person.id, person.name, person.age, person.job)">Edit</a>
                     <a href="#" class="btn btn-danger" @click.prevent="deletePerson(person.id)">Delete</a>
                 </td>
-
-            <tr :class="isEditPerson(person.id) ? '' : 'd-none'">
-                <th>{{ person.id }}</th>
-                <td><input type="text" v-model="name" class="form-control" id="name"></td>
-                <td><input type="number" v-model="age" class="form-control" id="age"></td>
-                <td><input type="text" v-model="job" class="form-control" id="job"></td>
-                <td><a href="#" class="btn btn-success" @click.prevent="updatePerson(person.id)">Save</a></td>
             </tr>
+            <EditComponent :person="person" :ref="`edit_${person.id}`"></EditComponent>
         </template>
         </tbody>
     </table>
@@ -36,9 +31,10 @@
 </template>
 
 <script>
+import EditComponent from "./EditComponent";
 export default {
     name: "IndexComponent",
-
+    components: {EditComponent},
     data(){
         return {
             people: null,
@@ -58,27 +54,18 @@ export default {
         },
         editPerson(id, name, age, job){
             this.editPersonId = id
-            this.name = name
-            this.age = age
-            this.job = job
+            let editName = `edit_${id}`
+            let fullEditName = this.$refs[editName][0]
+
+            fullEditName.name = name
+            fullEditName.age = age
+            fullEditName.job = job
         },
         isEditPerson(id){
             return id === this.editPersonId
         },
-        updatePerson(id){
-            axios.put('api/people/' + id, {
-                name: this.name,
-                age: this.age,
-                job: this.job,
-            })
-            .then(res => {
-                console.log(res.data);
-                this.editPersonId = null
-                this.getPerson()
-            })
-        },
         deletePerson(id){
-          axios.delete('api/people/' + id)
+          axios.delete(`api/people/$id`)
           .then(res => {
               console.log(res.data);
               this.getPerson()

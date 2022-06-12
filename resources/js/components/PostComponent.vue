@@ -2,7 +2,7 @@
     <div class="container">
         <div class="row justify-content-center">
             <CreateComponent></CreateComponent>
-            <IndexComponent></IndexComponent>
+            <IndexComponent ref="index"></IndexComponent>
         </div>
     </div>
 </template>
