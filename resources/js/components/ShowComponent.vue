@@ -30,7 +30,7 @@ export default {
     methods: {
         deletePerson(id) {
             console.log(id);
-            axios.delete(`api/people/$id`)
+            axios.delete(`api/people/${id}`)
                 .then(res => {
                     console.log(res.data);
                     this.$parent.getPerson()

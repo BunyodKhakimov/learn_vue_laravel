@@ -26,7 +26,7 @@ export default {
 
     methods: {
         updatePerson(id) {
-            axios.put(`api/people/$id`, {
+            axios.put(`api/people/${id}`, {
                 name: this.name,
                 age: this.age,
                 job: this.job,
