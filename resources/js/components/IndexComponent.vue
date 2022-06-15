@@ -12,17 +12,7 @@
         </thead>
         <tbody>
         <template v-for="person in people">
-            <tr :class="isEditPerson(person.id) ? 'd-none' : ''">
-                <th>{{ person.id }}</th>
-                <td>{{ person.name }}</td>
-                <td>{{ person.age }}</td>
-                <td>{{ person.job }}</td>
-                <td>
-                    <a href="#" class="btn btn-success"
-                       @click.prevent="editPerson(person.id, person.name, person.age, person.job)">Edit</a>
-                    <a href="#" class="btn btn-danger" @click.prevent="deletePerson(person.id)">Delete</a>
-                </td>
-            </tr>
+            <ShowComponent :person="person" :ref="`show_${person.id}`"></ShowComponent>
             <EditComponent :person="person" :ref="`edit_${person.id}`"></EditComponent>
         </template>
         </tbody>
@@ -31,10 +21,13 @@
 </template>
 
 <script>
+import ShowComponent from "./ShowComponent";
 import EditComponent from "./EditComponent";
 export default {
     name: "IndexComponent",
-    components: {EditComponent},
+
+    components: {EditComponent, ShowComponent},
+
     data(){
         return {
             people: null,
@@ -63,13 +56,6 @@ export default {
         },
         isEditPerson(id){
             return id === this.editPersonId
-        },
-        deletePerson(id){
-          axios.delete(`api/people/$id`)
-          .then(res => {
-              console.log(res.data);
-              this.getPerson()
-          })
         },
     },
 
