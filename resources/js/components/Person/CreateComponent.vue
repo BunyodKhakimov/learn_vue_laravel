@@ -25,6 +25,8 @@
 </template>
 
 <script>
+import router from "../../router";
+
 export default {
     name: "CreateComponent",
 
@@ -47,8 +49,7 @@ export default {
                 this.name = null
                 this.age = null
                 this.job = null
-                console.log(res)
-                this.$parent.$refs.index.getPerson()
+                router.push({ name: 'people.index' });
             })
         },
     },
