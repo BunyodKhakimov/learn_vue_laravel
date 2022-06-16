@@ -8,14 +8,13 @@
 </template>
 
 <script>
-import SinglePostComponent from "./SinglePostComponent";
 import CreateComponent from "./CreateComponent";
 import IndexComponent from "./IndexComponent";
     export default {
         name: "PostComponent",
 
         components: {
-            SinglePostComponent, CreateComponent, IndexComponent
+            CreateComponent, IndexComponent
         },
 
         data() {

@@ -1,6 +1,6 @@
 import Vue from 'vue'
-import ExampleComponent from "./components/ExampleComponent";
-import PostComponent from "./components/PostComponent";
+import Index from "./components/Index";
+import router from "./router";
 
 require('./bootstrap');
 
@@ -8,7 +8,8 @@ const app = new Vue({
     el: '#app',
 
     components: {
-        ExampleComponent,
-        PostComponent,
-    }
+        Index,
+    },
+
+    router,
 })
