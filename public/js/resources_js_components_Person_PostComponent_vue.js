@@ -37,8 +37,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   name: "CreateComponent",
   data: function data() {
@@ -219,11 +217,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var _CreateComponent__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./CreateComponent */ "./resources/js/components/Person/CreateComponent.vue");
 /* harmony import */ var _IndexComponent__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./IndexComponent */ "./resources/js/components/Person/IndexComponent.vue");
-//
-//
-//
-//
-//
 //
 //
 //
@@ -664,118 +657,110 @@ var render = function () {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", { staticClass: "container w-50 m-4" }, [
-    _c("div", { staticClass: "row justify-content-center" }, [
-      _c("div", { staticClass: "col-md-8" }, [
-        _c("div", { staticClass: "card" }, [
-          _c("div", { staticClass: "card-header" }, [_vm._v("Create Person")]),
-          _vm._v(" "),
-          _c("div", { staticClass: "card-body" }, [
-            _c("div", { staticClass: "mb-3" }, [
-              _c(
-                "label",
-                { staticClass: "form-label", attrs: { for: "name" } },
-                [_vm._v("Name")]
-              ),
-              _vm._v(" "),
-              _c("input", {
-                directives: [
-                  {
-                    name: "model",
-                    rawName: "v-model",
-                    value: _vm.name,
-                    expression: "name",
-                  },
-                ],
-                staticClass: "form-control",
-                attrs: { type: "text", id: "name", placeholder: "name" },
-                domProps: { value: _vm.name },
-                on: {
-                  input: function ($event) {
-                    if ($event.target.composing) {
-                      return
-                    }
-                    _vm.name = $event.target.value
-                  },
-                },
-              }),
+  return _c("div", { staticClass: "row w-50 mt-4" }, [
+    _c("div", { staticClass: "col-md-8" }, [
+      _c("div", { staticClass: "card" }, [
+        _c("div", { staticClass: "card-header" }, [_vm._v("Create Person")]),
+        _vm._v(" "),
+        _c("div", { staticClass: "card-body" }, [
+          _c("div", { staticClass: "mb-3" }, [
+            _c("label", { staticClass: "form-label", attrs: { for: "name" } }, [
+              _vm._v("Name"),
             ]),
             _vm._v(" "),
-            _c("div", { staticClass: "mb-3" }, [
-              _c(
-                "label",
-                { staticClass: "form-label", attrs: { for: "age" } },
-                [_vm._v("Age")]
-              ),
-              _vm._v(" "),
-              _c("input", {
-                directives: [
-                  {
-                    name: "model",
-                    rawName: "v-model",
-                    value: _vm.age,
-                    expression: "age",
-                  },
-                ],
-                staticClass: "form-control",
-                attrs: { type: "number", id: "age", placeholder: "age" },
-                domProps: { value: _vm.age },
-                on: {
-                  input: function ($event) {
-                    if ($event.target.composing) {
-                      return
-                    }
-                    _vm.age = $event.target.value
-                  },
+            _c("input", {
+              directives: [
+                {
+                  name: "model",
+                  rawName: "v-model",
+                  value: _vm.name,
+                  expression: "name",
                 },
-              }),
-            ]),
-            _vm._v(" "),
-            _c("div", { staticClass: "mb-3" }, [
-              _c(
-                "label",
-                { staticClass: "form-label", attrs: { for: "job" } },
-                [_vm._v("Job")]
-              ),
-              _vm._v(" "),
-              _c("input", {
-                directives: [
-                  {
-                    name: "model",
-                    rawName: "v-model",
-                    value: _vm.job,
-                    expression: "job",
-                  },
-                ],
-                staticClass: "form-control",
-                attrs: { type: "text", id: "job", placeholder: "job" },
-                domProps: { value: _vm.job },
-                on: {
-                  input: function ($event) {
-                    if ($event.target.composing) {
-                      return
-                    }
-                    _vm.job = $event.target.value
-                  },
-                },
-              }),
-            ]),
-            _vm._v(" "),
-            _c(
-              "button",
-              {
-                staticClass: "btn btn-primary",
-                attrs: { type: "submit" },
-                on: {
-                  click: function ($event) {
-                    $event.preventDefault()
-                    return _vm.createPerson()
-                  },
+              ],
+              staticClass: "form-control",
+              attrs: { type: "text", id: "name", placeholder: "name" },
+              domProps: { value: _vm.name },
+              on: {
+                input: function ($event) {
+                  if ($event.target.composing) {
+                    return
+                  }
+                  _vm.name = $event.target.value
                 },
               },
-              [_vm._v("Create")]
-            ),
+            }),
           ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "mb-3" }, [
+            _c("label", { staticClass: "form-label", attrs: { for: "age" } }, [
+              _vm._v("Age"),
+            ]),
+            _vm._v(" "),
+            _c("input", {
+              directives: [
+                {
+                  name: "model",
+                  rawName: "v-model",
+                  value: _vm.age,
+                  expression: "age",
+                },
+              ],
+              staticClass: "form-control",
+              attrs: { type: "number", id: "age", placeholder: "age" },
+              domProps: { value: _vm.age },
+              on: {
+                input: function ($event) {
+                  if ($event.target.composing) {
+                    return
+                  }
+                  _vm.age = $event.target.value
+                },
+              },
+            }),
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "mb-3" }, [
+            _c("label", { staticClass: "form-label", attrs: { for: "job" } }, [
+              _vm._v("Job"),
+            ]),
+            _vm._v(" "),
+            _c("input", {
+              directives: [
+                {
+                  name: "model",
+                  rawName: "v-model",
+                  value: _vm.job,
+                  expression: "job",
+                },
+              ],
+              staticClass: "form-control",
+              attrs: { type: "text", id: "job", placeholder: "job" },
+              domProps: { value: _vm.job },
+              on: {
+                input: function ($event) {
+                  if ($event.target.composing) {
+                    return
+                  }
+                  _vm.job = $event.target.value
+                },
+              },
+            }),
+          ]),
+          _vm._v(" "),
+          _c(
+            "button",
+            {
+              staticClass: "btn btn-primary",
+              attrs: { type: "submit" },
+              on: {
+                click: function ($event) {
+                  $event.preventDefault()
+                  return _vm.createPerson()
+                },
+              },
+            },
+            [_vm._v("Create")]
+          ),
         ]),
       ]),
     ]),
@@ -922,7 +907,7 @@ var render = function () {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", [
+  return _c("div", { staticClass: "w-75 mt-4" }, [
     _c("table", { staticClass: "table" }, [
       _vm._m(0),
       _vm._v(" "),
@@ -991,18 +976,7 @@ var render = function () {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", { staticClass: "container" }, [
-    _c(
-      "div",
-      { staticClass: "row justify-content-center" },
-      [
-        _c("CreateComponent"),
-        _vm._v(" "),
-        _c("IndexComponent", { ref: "index" }),
-      ],
-      1
-    ),
-  ])
+  return _c("IndexComponent", { ref: "index" })
 }
 var staticRenderFns = []
 render._withStripped = true

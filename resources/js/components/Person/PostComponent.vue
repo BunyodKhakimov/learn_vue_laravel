@@ -1,40 +1,36 @@
 <template>
-    <div class="container">
-        <div class="row justify-content-center">
-            <CreateComponent></CreateComponent>
-            <IndexComponent ref="index"></IndexComponent>
-        </div>
-    </div>
+    <IndexComponent ref="index"></IndexComponent>
 </template>
 
 <script>
 import CreateComponent from "./CreateComponent";
 import IndexComponent from "./IndexComponent";
-    export default {
-        name: "PostComponent",
 
-        components: {
-            CreateComponent, IndexComponent
-        },
+export default {
+    name: "PostComponent",
 
-        data() {
-            return {
-                //
-            }
-        },
+    components: {
+        CreateComponent, IndexComponent
+    },
 
-        methods: {
-            //
-        },
-
-        mounted() {
-            //
-        },
-
-        computed: {
+    data() {
+        return {
             //
         }
+    },
+
+    methods: {
+        //
+    },
+
+    mounted() {
+        //
+    },
+
+    computed: {
+        //
     }
+}
 </script>
 
 <style scoped>
