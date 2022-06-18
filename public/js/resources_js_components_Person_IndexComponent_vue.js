@@ -97,7 +97,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var _ShowComponent__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./ShowComponent */ "./resources/js/components/Person/ShowComponent.vue");
 /* harmony import */ var _EditComponent__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./EditComponent */ "./resources/js/components/Person/EditComponent.vue");
-/* harmony import */ var _router__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../router */ "./resources/js/router.js");
 //
 //
 //
@@ -130,7 +129,10 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-
+//
+//
+//
+//
 
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
@@ -218,34 +220,24 @@ __webpack_require__.r(__webpack_exports__);
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   name: "ShowComponent",
-  data: function data() {
-    return {
-      person: null
-    };
-  },
   methods: {
     "delete": function _delete(id) {
       var _this = this;
 
-      console.log(id);
       axios["delete"]("/api/people/".concat(id)).then(function (res) {
         console.log(res.data);
 
         _this.$parent.getPerson();
       });
-    },
-    getPerson: function getPerson() {
-      var _this2 = this;
-
-      axios.get("/api/people/".concat(this.$route.params.id)).then(function (res) {
-        _this2.person = res.data.data;
-      });
     }
   },
   mounted: function mounted() {
-    this.getPerson();
+    this.$store.dispatch('getPerson', this.$route.params.id);
   },
-  computed: {//
+  computed: {
+    person: function person() {
+      return this.$store.getters.person;
+    }
   }
 });
 
@@ -616,7 +608,30 @@ var render = function () {
               _c("tr", [
                 _c("th", [_vm._v(_vm._s(person.id))]),
                 _vm._v(" "),
-                _c("td", [_vm._v(_vm._s(person.name))]),
+                _c(
+                  "td",
+                  [
+                    _c(
+                      "router-link",
+                      {
+                        attrs: {
+                          to: {
+                            name: "people.show",
+                            params: { id: person.id },
+                          },
+                        },
+                      },
+                      [
+                        _vm._v(
+                          "\n                        " +
+                            _vm._s(person.name) +
+                            "\n                    "
+                        ),
+                      ]
+                    ),
+                  ],
+                  1
+                ),
                 _vm._v(" "),
                 _c("td", [_vm._v(_vm._s(person.age))]),
                 _vm._v(" "),
@@ -710,9 +725,9 @@ var render = function () {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return this.person
-    ? _c("div", [
-        _c("ul", { staticClass: "list-group w-25 mt-4 mb-4" }, [
+  return _c("div", [
+    _vm.person
+      ? _c("ul", { staticClass: "list-group w-25 mt-4 mb-4" }, [
           _c(
             "li",
             {
@@ -724,7 +739,7 @@ var render = function () {
                 _c("div", { staticClass: "fw-bold" }, [_vm._v("Name")]),
                 _vm._v(
                   "\n                " +
-                    _vm._s(this.person.name) +
+                    _vm._s(_vm.person.name) +
                     "\n            "
                 ),
               ]),
@@ -742,7 +757,7 @@ var render = function () {
                 _c("div", { staticClass: "fw-bold" }, [_vm._v("Age")]),
                 _vm._v(
                   "\n                " +
-                    _vm._s(this.person.age) +
+                    _vm._s(_vm.person.age) +
                     "\n            "
                 ),
               ]),
@@ -760,7 +775,7 @@ var render = function () {
                 _c("div", { staticClass: "fw-bold" }, [_vm._v("Job")]),
                 _vm._v(
                   "\n                " +
-                    _vm._s(this.person.job) +
+                    _vm._s(_vm.person.job) +
                     "\n            "
                 ),
               ]),
@@ -796,9 +811,9 @@ var render = function () {
               ),
             ]
           ),
-        ]),
-      ])
-    : _vm._e()
+        ])
+      : _vm._e(),
+  ])
 }
 var staticRenderFns = []
 render._withStripped = true

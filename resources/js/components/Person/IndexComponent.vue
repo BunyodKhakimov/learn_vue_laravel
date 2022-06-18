@@ -14,7 +14,11 @@
             <template v-for="person in people">
                 <tr>
                     <th>{{ person.id }}</th>
-                    <td>{{ person.name }}</td>
+                    <td>
+                        <router-link :to="{ name: 'people.show', params: {id: person.id}}">
+                            {{ person.name }}
+                        </router-link>
+                    </td>
                     <td>{{ person.age }}</td>
                     <td>{{ person.job }}</td>
                     <td>
@@ -33,7 +37,6 @@
 <script>
 import ShowComponent from "./ShowComponent";
 import EditComponent from "./EditComponent";
-import router from "../../router";
 
 export default {
     name: "IndexComponent",
