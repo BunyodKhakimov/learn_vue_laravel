@@ -50,17 +50,15 @@ export default {
         getPerson() {
             axios.get('/api/people')
                 .then(res => {
-                    this.people = res.data
+                    this.people = res.data.data
                 })
         },
         isEditPerson(id) {
             return id === this.editPersonId
         },
         destroy(id) {
-            console.log(id);
             axios.delete(`/api/people/${id}`)
                 .then(res => {
-                    console.log(res.data);
                     this.getPerson()
                 })
         },

@@ -55,7 +55,7 @@ export default {
         getPerson() {
             axios.get(`/api/people/${this.$route.params.id}`)
                 .then(res => {
-                    this.person = res.data
+                    this.person = res.data.data
                 })
         }
     },
