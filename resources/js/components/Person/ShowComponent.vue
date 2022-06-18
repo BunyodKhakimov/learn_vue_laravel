@@ -24,6 +24,9 @@
                     <router-link class="btn btn-success" :to="{ name: 'people.edit', params: {id: person.id}}">
                         Edit
                     </router-link>
+                    <button class="btn btn-danger" @click.prevent="$store.dispatch('deletePerson', person.id)">
+                        Delete
+                    </button>
                 </div>
             </li>
         </ul>
@@ -38,13 +41,7 @@ export default {
     name: "ShowComponent",
 
     methods: {
-        delete(id) {
-            axios.delete(`/api/people/${id}`)
-                .then(res => {
-                    console.log(res.data);
-                    this.$parent.getPerson()
-                })
-        },
+        //
     },
 
     mounted() {

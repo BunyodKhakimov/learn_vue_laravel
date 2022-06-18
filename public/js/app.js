@@ -5430,27 +5430,81 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
+/* harmony import */ var _router__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../router */ "./resources/js/router.js");
+function _objectDestructuringEmpty(obj) { if (obj == null) throw new TypeError("Cannot destructure undefined"); }
+
+
 var state = {
-  person: null
+  person: null,
+  people: null
 };
 var actions = {
   getPerson: function getPerson(_ref, id) {
     var commit = _ref.commit;
-    console.log(1111111);
     axios.get("/api/people/".concat(id)).then(function (res) {
-      console.log(22222222222);
       commit('setPerson', res.data.data);
+    });
+  },
+  getPeople: function getPeople(_ref2) {
+    var commit = _ref2.commit;
+    axios.get('/api/people').then(function (res) {
+      commit('setPeople', res.data.data);
+    });
+  },
+  deletePerson: function deletePerson(_ref3, id) {
+    var dispatch = _ref3.dispatch;
+    axios["delete"]("/api/people/".concat(id)).then(function (res) {
+      dispatch('getPeople');
+    });
+  },
+  updatePerson: function updatePerson(_ref4, data) {
+    _objectDestructuringEmpty(_ref4);
+
+    console.log(data);
+    axios.patch("/api/people/".concat(data.id), {
+      name: data.name,
+      age: data.age,
+      job: data.job
+    }).then(function (res) {
+      _router__WEBPACK_IMPORTED_MODULE_0__["default"].push({
+        name: 'people.show',
+        params: {
+          id: data.id
+        }
+      });
+    });
+  },
+  createPerson: function createPerson(_ref5, data) {
+    _objectDestructuringEmpty(_ref5);
+
+    axios.post('/api/people', {
+      name: data.name,
+      age: data.age,
+      job: data.job
+    }).then(function (res) {
+      _router__WEBPACK_IMPORTED_MODULE_0__["default"].push({
+        name: 'people.show',
+        params: {
+          id: res.data.data.id
+        }
+      });
     });
   }
 };
 var mutations = {
   setPerson: function setPerson(state, person) {
     state.person = person;
+  },
+  setPeople: function setPeople(state, people) {
+    state.people = people;
   }
 };
 var getters = {
   person: function person(state) {
     return state.person;
+  },
+  people: function people(state) {
+    return state.people;
   }
 };
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({

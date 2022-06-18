@@ -44,19 +44,13 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   name: "ShowComponent",
-  methods: {
-    "delete": function _delete(id) {
-      var _this = this;
-
-      axios["delete"]("/api/people/".concat(id)).then(function (res) {
-        console.log(res.data);
-
-        _this.$parent.getPerson();
-      });
-    }
+  methods: {//
   },
   mounted: function mounted() {
     this.$store.dispatch('getPerson', this.$route.params.id);
@@ -234,6 +228,23 @@ var render = function () {
                       },
                     },
                     [_vm._v("\n                    Edit\n                ")]
+                  ),
+                  _vm._v(" "),
+                  _c(
+                    "button",
+                    {
+                      staticClass: "btn btn-danger",
+                      on: {
+                        click: function ($event) {
+                          $event.preventDefault()
+                          return _vm.$store.dispatch(
+                            "deletePerson",
+                            _vm.person.id
+                          )
+                        },
+                      },
+                    },
+                    [_vm._v("\n                    Delete\n                ")]
                   ),
                 ],
                 1

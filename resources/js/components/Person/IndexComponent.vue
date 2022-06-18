@@ -25,7 +25,7 @@
                         <router-link class="btn btn-success" :to="{ name: 'people.edit', params: {id: person.id}}">
                             Edit
                         </router-link>
-                        <a href="#" class="btn btn-danger" @click.prevent="destroy(person.id)">Delete</a>
+                        <a href="#" class="btn btn-danger" @click.prevent="$store.dispatch('deletePerson', person.id)">Delete</a>
                     </td>
                 </tr>
             </template>
@@ -45,34 +45,22 @@ export default {
 
     data() {
         return {
-            people: null,
+            //
         }
     },
 
     methods: {
-        getPerson() {
-            axios.get('/api/people')
-                .then(res => {
-                    this.people = res.data.data
-                })
-        },
-        isEditPerson(id) {
-            return id === this.editPersonId
-        },
-        destroy(id) {
-            axios.delete(`/api/people/${id}`)
-                .then(res => {
-                    this.getPerson()
-                })
-        },
+        //
     },
 
     mounted() {
-        this.getPerson()
+        this.$store.dispatch('getPeople');
     },
 
     computed: {
-        //
+        people() {
+            return this.$store.getters.people;
+        }
     },
 }
 </script>
