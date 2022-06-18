@@ -68,7 +68,11 @@ __webpack_require__.r(__webpack_exports__);
     }
   },
   mounted: function mounted() {},
-  computed: {}
+  computed: {
+    isDisabled: function isDisabled() {
+      return this.name && this.age && this.job;
+    }
+  }
 });
 
 /***/ }),
@@ -251,7 +255,7 @@ var render = function () {
             "button",
             {
               staticClass: "btn btn-primary",
-              attrs: { type: "submit" },
+              attrs: { disabled: !_vm.isDisabled, type: "submit" },
               on: {
                 click: function ($event) {
                   $event.preventDefault()

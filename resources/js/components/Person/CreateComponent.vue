@@ -17,7 +17,7 @@
                         <label for="job" class="form-label">Job</label>
                         <input type="text" v-model="job" class="form-control" id="job" placeholder="job">
                     </div>
-                    <button type="submit" class="btn btn-primary" @click.prevent="createPerson()">Create</button>
+                    <button :disabled="!isDisabled" type="submit" class="btn btn-primary" @click.prevent="createPerson()">Create</button>
                 </div>
             </div>
         </div>
@@ -58,7 +58,11 @@ export default {
 
     },
 
-    computed: {},
+    computed: {
+        isDisabled() {
+            return this.name && this.age && this.job
+        }
+    },
 }
 </script>
 
