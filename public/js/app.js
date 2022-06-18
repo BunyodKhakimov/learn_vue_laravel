@@ -5364,7 +5364,7 @@ vue__WEBPACK_IMPORTED_MODULE_0__["default"].use(vue_router__WEBPACK_IMPORTED_MOD
   routes: [{
     path: '/people',
     component: function component() {
-      return __webpack_require__.e(/*! import() */ "resources_js_components_Person_PostComponent_vue").then(__webpack_require__.bind(__webpack_require__, /*! ./components/Person/PostComponent */ "./resources/js/components/Person/PostComponent.vue"));
+      return __webpack_require__.e(/*! import() */ "resources_js_components_Person_IndexComponent_vue").then(__webpack_require__.bind(__webpack_require__, /*! ./components/Person/IndexComponent */ "./resources/js/components/Person/IndexComponent.vue"));
     },
     name: 'people.index'
   }, {
@@ -5373,6 +5373,18 @@ vue__WEBPACK_IMPORTED_MODULE_0__["default"].use(vue_router__WEBPACK_IMPORTED_MOD
       return __webpack_require__.e(/*! import() */ "resources_js_components_Person_CreateComponent_vue").then(__webpack_require__.bind(__webpack_require__, /*! ./components/Person/CreateComponent */ "./resources/js/components/Person/CreateComponent.vue"));
     },
     name: 'people.create'
+  }, {
+    path: '/people/:id/edit',
+    component: function component() {
+      return __webpack_require__.e(/*! import() */ "resources_js_components_Person_EditComponent_vue").then(__webpack_require__.bind(__webpack_require__, /*! ./components/Person/EditComponent */ "./resources/js/components/Person/EditComponent.vue"));
+    },
+    name: 'people.edit'
+  }, {
+    path: '/people/:id',
+    component: function component() {
+      return __webpack_require__.e(/*! import() */ "resources_js_components_Person_ShowComponent_vue").then(__webpack_require__.bind(__webpack_require__, /*! ./components/Person/ShowComponent */ "./resources/js/components/Person/ShowComponent.vue"));
+    },
+    name: 'people.show'
   }]
 }));
 
@@ -43365,7 +43377,7 @@ module.exports = JSON.parse('{"name":"axios","version":"0.21.4","description":"P
 /******/ 		// This function allow to reference async chunks
 /******/ 		__webpack_require__.u = (chunkId) => {
 /******/ 			// return url for filenames not based on template
-/******/ 			if ({"resources_js_components_Person_PostComponent_vue":1,"resources_js_components_Person_CreateComponent_vue":1}[chunkId]) return "js/" + chunkId + ".js";
+/******/ 			if ({"resources_js_components_Person_IndexComponent_vue":1,"resources_js_components_Person_CreateComponent_vue":1,"resources_js_components_Person_EditComponent_vue":1,"resources_js_components_Person_ShowComponent_vue":1}[chunkId]) return "js/" + chunkId + ".js";
 /******/ 			// return url for filenames based on template
 /******/ 			return undefined;
 /******/ 		};

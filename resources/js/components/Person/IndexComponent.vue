@@ -12,8 +12,18 @@
             </thead>
             <tbody>
             <template v-for="person in people">
-                <ShowComponent :person="person" :ref="`show_${person.id}`"></ShowComponent>
-                <EditComponent :person="person" :ref="`edit_${person.id}`"></EditComponent>
+                <tr>
+                    <th>{{ person.id }}</th>
+                    <td>{{ person.name }}</td>
+                    <td>{{ person.age }}</td>
+                    <td>{{ person.job }}</td>
+                    <td>
+                        <router-link class="btn btn-success" :to="{ name: 'people.edit', params: {id: person.id}}">
+                            Edit
+                        </router-link>
+                        <a href="#" class="btn btn-danger" @click.prevent="destroy(person.id)">Delete</a>
+                    </td>
+                </tr>
             </template>
             </tbody>
         </table>
@@ -23,6 +33,7 @@
 <script>
 import ShowComponent from "./ShowComponent";
 import EditComponent from "./EditComponent";
+import router from "../../router";
 
 export default {
     name: "IndexComponent",
@@ -32,10 +43,6 @@ export default {
     data() {
         return {
             people: null,
-            editPersonId: null,
-            name: null,
-            age: null,
-            job: null,
         }
     },
 
@@ -46,17 +53,16 @@ export default {
                     this.people = res.data
                 })
         },
-        editPerson(id, name, age, job) {
-            this.editPersonId = id
-            let editName = `edit_${id}`
-            let fullEditName = this.$refs[editName][0]
-
-            fullEditName.name = name
-            fullEditName.age = age
-            fullEditName.job = job
-        },
         isEditPerson(id) {
             return id === this.editPersonId
+        },
+        destroy(id) {
+            console.log(id);
+            axios.delete(`/api/people/${id}`)
+                .then(res => {
+                    console.log(res.data);
+                    this.getPerson()
+                })
         },
     },
 
